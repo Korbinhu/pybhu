@@ -1,11 +1,11 @@
-# stack-viewer
+# pybhu
 
 ```python
 import numpy as np
-from stack_viewer import view_stack
+import pybhu
 
 data = np.random.rand(64, 64, 10)
-view_stack(data)
+pybhu.img_viewer(data)
 ```
 
 ## Supported in 0.1.0
