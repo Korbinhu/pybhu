@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pybhu"
-version = "0.1.1"
+version = "0.1.3"
 description = "PyQt6 viewer for 3D NumPy image stacks"
 readme = "README.md"
 requires-python = ">=3.11"
@@ -12,6 +12,7 @@ dependencies = [
   "numpy>=1.24",
   "matplotlib>=3.8",
   "PyQt6>=6.6",
+  "scipy>=1.10",
 ]
 
 [project.optional-dependencies]
