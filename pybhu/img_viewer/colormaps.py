@@ -1,0 +1,43 @@
+SUPPORTED_COLORMAPS = sorted([
+    # ── Matplotlib: Perceptually Uniform Sequential ───────────────────────────
+    "viridis", "plasma", "inferno", "magma", "cividis",
+
+    # ── Matplotlib: Sequential ────────────────────────────────────────────────
+    "Greys", "Purples", "Blues", "Greens", "Oranges", "Reds",
+    "YlOrBr", "YlOrRd", "OrRd", "PuRd", "RdPu", "BuPu",
+    "GnBu", "PuBu", "YlGnBu", "PuBuGn", "BuGn", "YlGn",
+
+    # ── Matplotlib: Sequential (2) ────────────────────────────────────────────
+    "binary", "gist_yarg", "gist_gray", "gray", "bone", "pink",
+    "spring", "summer", "autumn", "winter", "cool", "Wistia",
+    "hot", "afmhot", "gist_heat", "copper",
+
+    # ── Matplotlib: Diverging ─────────────────────────────────────────────────
+    "PiYG", "PRGn", "BrBG", "PuOr", "RdGy", "RdBu",
+    "RdYlBu", "RdYlGn", "Spectral", "coolwarm", "bwr", "seismic",
+
+    # ── Matplotlib: Cyclic ────────────────────────────────────────────────────
+    "twilight", "twilight_shifted", "hsv",
+
+    # ── Matplotlib: Qualitative ───────────────────────────────────────────────
+    "Pastel1", "Pastel2", "Paired", "Accent",
+    "Dark2", "Set1", "Set2", "Set3",
+    "tab10", "tab20", "tab20b", "tab20c",
+
+    # ── Matplotlib: Miscellaneous ─────────────────────────────────────────────
+    "flag", "prism", "ocean", "gist_earth", "terrain", "gist_stern",
+    "gnuplot", "gnuplot2", "CMRmap", "cubehelix", "brg",
+    "gist_rainbow", "rainbow", "jet", "turbo", "nipy_spectral", "gist_ncar",
+
+
+], key=lambda x: x.lower())
+
+
+def available_colormaps() -> list[str]:
+    return list(SUPPORTED_COLORMAPS)
+
+
+def resolve_colormap(name: str, inverted: bool = False) -> str:
+    if name not in SUPPORTED_COLORMAPS:
+        raise ValueError(f"unsupported colormap: {name}")
+    return f"{name}_r" if inverted else name
